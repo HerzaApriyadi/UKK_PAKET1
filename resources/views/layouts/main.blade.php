@@ -34,7 +34,7 @@
       <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="index.html">READER</a>
+            <a href="{{ url('/home')}}">READER</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
             <a href="index.html">St</a>
@@ -42,20 +42,18 @@
           <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
             <li class="dropdown">
-              <a href="#"><i class="fas fa-fire"></i><span>Dashboard</span></a>
-              <a href="views.create"><i class="fas fa-box"></i><span>Data Buku</span></a>
+            <a href="{{url('/dashboard')}}"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+              <a href="{{ url('/buku') }}"><i class="fas fa-box"></i><span>Data Buku</span></a>
           </div>        </aside>
       </div>
 
       <!-- Main Content -->
       <div class="main-content">
         <section class="section">
-          <div class="hero bg-primary text-white">
-            <div class="hero-inner">
-              <h2>Welcome Back</h2>
-              <p class="lead">This page is a place to manage posts, categories and more.</p>
-            </div>
-          </div>
+            <main class="py-4">
+              @yield('dashboard')
+          </main>
+            
         </section>
       </div>
       @include('komponen.footer')
@@ -78,8 +76,6 @@
   <!-- Template JS File -->
   <script src="assets/js/scripts.js"></script>
   <script src="assets/js/custom.js"></script>
-  <main class="py-4">
-    @yield('dashboard')
-</main>
+  
 </body>
 </html>

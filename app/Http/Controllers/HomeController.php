@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,20 +23,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
-        $role = auth()->user();
-        if ($role == 1){
+        $role = auth()->user()->role;
+        if ($role == '1') {
             return view('admin');
-        }
-        if ($role == 1){
-            return view('admin');
-        }
-        if ($role == 1){
-            return view('admin');
-        }
-         else {
-            return view ('home');
-         }   
+        } 
+        if ($role == '2') {
+            return view('main');
+        } 
+        else
+         {
+            return view('home');
+        } 
     }
 
     }
